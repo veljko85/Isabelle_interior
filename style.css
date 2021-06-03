@@ -84,19 +84,19 @@
         left: calc((100% / 6)*0.16);
     }
     #purpule {
-        background-color: purple;
+        background-color: #BC53FF;
         left: calc((100% / 6)*1.32);
     }
     #green {
-        background-color: green;
+        background-color: #BCFF53;
         left: calc((100% / 6)*2.48);
     }
     #red {
         background-color: red;
         left: calc((100% / 6)*3.64);
     }
-    #yellow {
-        background-color: yellow;
+    #blue {
+        background-color: #53BCFF;
         left: calc((100% / 6)*4.8);
     }
     .light-shape {
@@ -180,19 +180,19 @@
         left: 80%;
     }
     #purpule {
-        background-color: purple;
+        background-color: #BC53FF;
         left: 84%;
     }
     #green {
-        background-color: green;
+        background-color: #BCFF53;
         left: 88%;
     }
     #red {
         background-color: red;
         left: 92%;
     }
-    #yellow {
-        background-color: yellow;
+    #blue {
+        background-color: #53BCFF;
         left: 96%;
     }
     .light-shape {

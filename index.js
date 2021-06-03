@@ -3,7 +3,7 @@ var purpule = document.getElementById('purpule');
 var white = document.getElementById('white');
 var green = document.getElementById('green');
 var red = document.getElementById('red');
-var yellow = document.getElementById('yellow');
+var blue = document.getElementById('blue');
 var light24 = document.getElementById('light-2-4');
 var light610 = document.getElementById('light-6-10');
 var plus = document.getElementById('plus');
@@ -58,10 +58,10 @@ light5.intensity = 1;
 //room lights to change
 var roomColors = [
    /* normalRoom */ new BABYLON.Color3(0.4, 0.4, 0.4),
-  /*  purpleRoom */ new BABYLON.Color3(0.4, 0.0, 0.4),
-  /*  greenRoom */ new BABYLON.Color3(0.0, 0.4, 0.0),
+  /*  purpleRoom */ new BABYLON.Color3(0.74, 0.33, 1),
+  /*  greenRoom */ new BABYLON.Color3(0.74, 1, 0.33),
   /*  redRoom */ new BABYLON.Color3(0.4, 0.0, 0.0),
-  /*  yellowRoom */ new BABYLON.Color3(0.4, 0.4, 0.0)
+  /*  blueRoom */ new BABYLON.Color3(0.33, 0.74, 1)
 ];
 
 
@@ -146,7 +146,7 @@ red.addEventListener("click",
         light3.diffuse = roomColors[3];
 });
 
-yellow.addEventListener("click", 
+blue.addEventListener("click", 
         function () {
             light2.diffuse = roomColors[4];
             light3.diffuse = roomColors[4];
