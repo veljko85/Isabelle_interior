@@ -101,22 +101,24 @@ light24.addEventListener("click",
         function () {
             svetlo2x4.dispose();
             svetlo6x10.dispose();
-            lightShape.scaling = new BABYLON.Vector3(118,3,57);
+            
             BABYLON.SceneLoader.ImportMesh("", "", "Svetlo2x4.glb", scene, function (newMeshes) {
                 svetlo2x4 = newMeshes[0];
                 svetlo2x4.scaling = new BABYLON.Vector3(100,100,100);
            });
+           lightShape.scaling = new BABYLON.Vector3(118,3,57);
 });
 
 light610.addEventListener("click", 
         function () {
             svetlo2x4.dispose();
             svetlo6x10.dispose();
-            lightShape.scaling = new BABYLON.Vector3(295,3,171);
+            
             BABYLON.SceneLoader.ImportMesh("", "", "Svetlo6x10.glb", scene, function (newMeshes) {
                 svetlo6x10 = newMeshes[0];
                 svetlo6x10.scaling = new BABYLON.Vector3(100,100,100);
            });
+           lightShape.scaling = new BABYLON.Vector3(295,3,171);
 });
 
 //change light collor on click
@@ -151,7 +153,6 @@ yellow.addEventListener("click",
 });
 
 //change light intensity
-console.log(light3.intensity)
 plus.addEventListener("click", 
         function () {
             if (light3.intensity < 4) {
@@ -159,8 +160,6 @@ plus.addEventListener("click",
                 light3.intensity += 0.2;
                 light4.intensity += 0.1;
                 light5.intensity += 0.1;
-                console.log(light3.intensity)
-                console.log(light4.intensity)
             }
         });
 
@@ -171,8 +170,6 @@ minus.addEventListener("click",
             light3.intensity -= 0.2;
             light4.intensity -= 0.1;
             light5.intensity -= 0.1;
-            console.log(light3.intensity)
-            console.log(light4.intensity)
         }
 });
 
@@ -181,7 +178,7 @@ var lightRays = new BABYLON.VolumetricLightScatteringPostProcess('lightRays', 1.
 lightRays._volumetricLightScatteringRTT.renderParticles = true;
 // // // lightRays.exposure = 0.2;
 // // // lightRays.decay = 0.5;
-lightRays.weight = 0.3;
+lightRays.weight = 0.2;
 lightRays.density = 0.5;
 //lightRays.useDiffuseColor = true; // False as default
 //lightRays.mesh.material.diffuseColor = new BABYLON.Color3(0.0, 1.0, 0.0);
