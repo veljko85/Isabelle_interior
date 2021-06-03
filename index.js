@@ -24,7 +24,7 @@ var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, {
 const createScene =  () => {
 const scene = new BABYLON.Scene(engine);
 //scene color
-scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+scene.clearColor = new BABYLON.Color3(0.64, 0.51, 0.51);
 
 /**** Set camera and light *****/
 
