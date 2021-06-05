@@ -149,10 +149,10 @@
         right: -9%;
         -webkit-appearance: none;
         width: 40%;
-        height: 10px;
+        height: 5px;
        
         border-radius: 5px;
-        background: #7abfff;
+        background: #ffffff;
         outline: none;
         opacity: 0.7;
         -webkit-transition: .2s;
@@ -164,7 +164,7 @@
         width: 20px;
         height: 20px;
         border-radius: 50%; 
-        background: #350af5;
+        background: #072cff;
         cursor: pointer;
       }
     .slider:hover {
@@ -271,10 +271,10 @@
         right: 1.4%;
         -webkit-appearance: none;
         width: 10%;
-        height: 10px;
+        height: 5px;
        
         border-radius: 5px;
-        background: #7abfff;
+        background: #ffffff;
         outline: none;
         opacity: 0.7;
         -webkit-transition: .2s;
