@@ -31,9 +31,10 @@ scene.clearColor = new BABYLON.Color3(0.64, 0.51, 0.51);
 // var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 150, 0), scene);
 // camera.setTarget(new BABYLON.Vector3(-50, 150, 0));
 // camera.attachControl(canvas, true);
-
-var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 200, 0), scene);
-            camera.setPosition(new BABYLON.Vector3(180, 50, -200));
+                                                                                //0,200,0
+var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 100, 0), scene);
+         //180,50,-200   
+camera.setPosition(new BABYLON.Vector3(180, -170, -200));
             camera.attachControl(canvas, true);
 
 
@@ -48,19 +49,19 @@ const light2 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 1
 light2.intensity = 2;
 light2.diffuse = roomColor;
 const light4 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 1));
-light4.intensity = 1;
+light4.intensity = 0;
 const light3 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(-1, -1, -1));
 light3.intensity = 2;
 light3.diffuse = roomColor;
 const light5 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(-1, -1, -1));
-light5.intensity = 1;
+light5.intensity = 0;
 
 //room lights to change
 var roomColors = [
    /* normalRoom */ new BABYLON.Color3(0.4, 0.4, 0.4),
   /*  purpleRoom */ new BABYLON.Color3(0.74, 0.33, 1),
   /*  greenRoom */ new BABYLON.Color3(0.74, 1, 0.33),
-  /*  redRoom */ new BABYLON.Color3(0.4, 0.0, 0.0),
+  /*  redRoom */ new BABYLON.Color3(1, 0.1, 0.1),
   /*  blueRoom */ new BABYLON.Color3(0.33, 0.74, 1)
 ];
 
@@ -158,8 +159,8 @@ plus.addEventListener("click",
             if (light3.intensity < 4) {
                 light2.intensity += 0.2;
                 light3.intensity += 0.2;
-                light4.intensity += 0.1;
-                light5.intensity += 0.1;
+                // light4.intensity += 0.1;
+                // light5.intensity += 0.1;
             }
         });
 
@@ -168,8 +169,8 @@ minus.addEventListener("click",
         if (light3.intensity > 0.21) {
             light2.intensity -= 0.2;
             light3.intensity -= 0.2;
-            light4.intensity -= 0.1;
-            light5.intensity -= 0.1;
+            // light4.intensity -= 0.1;
+            // light5.intensity -= 0.1;
         }
 });
 
