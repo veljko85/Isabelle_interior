@@ -174,6 +174,14 @@ minus.addEventListener("click",
         }
 });
 
+var myRange = document.getElementById('myRange');
+console.log(myRange.value)
+myRange.addEventListener("change",
+    function () { 
+        light2.intensity = myRange.value / 10;
+        light3.intensity = myRange.value / 10;
+        console.log(myRange.value)
+    })
 //light rays from source
 var lightRays = new BABYLON.VolumetricLightScatteringPostProcess('lightRays', 1.0, camera, lightShape, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
 lightRays._volumetricLightScatteringRTT.renderParticles = true;
