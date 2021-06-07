@@ -36,7 +36,10 @@ var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(
          //180,50,-200   
 camera.setPosition(new BABYLON.Vector3(180, -170, -200));
             camera.attachControl(canvas, true);
-
+  //camera field of view for mobile devices          
+if (document.body.clientWidth < 768){
+    camera.fov = 1.5;
+}
             
 //denie scroll
 camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius = 0; 
@@ -102,10 +105,8 @@ light24.addEventListener("click",
         function () {
             svetlo2x4.dispose();
             svetlo6x10.dispose();
-            //camera field of view
-            if (document.body.clientWidth < 768){
-                camera.fov = 1;
-            }
+            
+            
             BABYLON.SceneLoader.ImportMesh("", "", "Svetlo2x4.glb", scene, function (newMeshes) {
                 svetlo2x4 = newMeshes[0];
                 svetlo2x4.scaling = new BABYLON.Vector3(100,100,100);
@@ -117,10 +118,8 @@ light610.addEventListener("click",
         function () {
             svetlo2x4.dispose();
             svetlo6x10.dispose();
-            //camera field of view
-            if (document.body.clientWidth < 768){
-                camera.fov = 1.5;
-            }
+            
+            
             BABYLON.SceneLoader.ImportMesh("", "", "Svetlo6x10.glb", scene, function (newMeshes) {
                 svetlo6x10 = newMeshes[0];
                 svetlo6x10.scaling = new BABYLON.Vector3(100,100,100);
