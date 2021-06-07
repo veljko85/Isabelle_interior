@@ -145,7 +145,7 @@
     .slider {
         position: absolute;
         transform: rotate(-90deg);
-        bottom: 50%;
+        bottom: 60%;
         right: -9%;
         -webkit-appearance: none;
         width: 40%;
