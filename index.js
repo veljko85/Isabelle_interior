@@ -161,12 +161,12 @@ BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljk
 console.log(cliWid)
 var lightButtons = [];
 var lightButtonsColor = ["#fff", "#BC53FF", "#BCFF53", "#FF0000", "#53BCFF"];
-var x = -(cliWid / 3.5);
+var x = - (cliWid / 6) ;
 
 for (let i = 0; i < 5; i++) {
     x += cliWid / 18;
     lightButtons[i] = BABYLON.GUI.Button.CreateSimpleButton("button", "");
-    lightButtons[i].horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    lightButtons[i].horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
     lightButtons[i].top = cliHei / 2.4 + "px";
     lightButtons[i].left = x + "px";
     lightButtons[i].width = cliWid / 20 + "px";
