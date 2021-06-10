@@ -195,10 +195,17 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"
     var panel = new BABYLON.GUI.StackPanel();
     panel.width = cliWid / 9 + "px";
     panel.isVertical = true;
+    panel.top = -(cliHei / 9) + "px";
     panel.left = -(cliWid / 100) + "px";
     panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
     panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
     advancedTexture.addControl(panel);    
+
+    var textBlock = new BABYLON.GUI.TextBlock();
+    textBlock.text = "R:255 G:255 B:255";
+    textBlock.height = "30px";
+    textBlock.color = "#fff";
+    panel.addControl(textBlock);
 
     var picker = new BABYLON.GUI.ColorPicker();
     picker.value = light2.diffuse && light3.diffuse;
@@ -208,9 +215,11 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"
     picker.onValueChangedObservable.add(function(value) { // value is a color3
         light2.diffuse.copyFrom(value);
         light3.diffuse.copyFrom(value);
+        textBlock.text = "R:" + JSON.stringify(Math.round(picker.value.r * 255)) + " G:" + JSON.stringify(Math.round(picker.value.g * 255)) + " B:" + JSON.stringify(Math.round(picker.value.b * 255));
     });
+    console.log(picker.value.r * 255);
+    panel.addControl(picker); 
 
-    panel.addControl(picker);  
     
     
 var lightPlus = BABYLON.GUI.Button.CreateSimpleButton("lightPlus", "+");
