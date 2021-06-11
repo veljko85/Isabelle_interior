@@ -104,10 +104,15 @@ lightShape.position = new BABYLON.Vector3(-224, 411, 243.5);
 var light24 = BABYLON.GUI.Button.CreateSimpleButton("light24", "2-4");
 light24.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
 light24.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-light24.top = cliHei / 1.6 + "px";
+light24.top = cliHei / 1.7 + "px";
 light24.left = (cliWid / 25) + "px";
-light24.width = cliWid / 20 + "px";
-light24.height = cliWid / 20 + "px";
+if (document.body.clientWidth < 768){
+    light24.width = cliWid / 5 + "px";
+    light24.height = cliWid / 5 + "px";
+} else {
+    light24.width = cliWid / 20 + "px";
+    light24.height = cliWid / 20 + "px";
+}
 light24.cornerRadius = 50;
 light24.thickness = 4;
 light24.children[0].color = "#DFF9FB";
@@ -131,8 +136,13 @@ light610.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
 light610.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 light610.top = cliHei / 1.37 + "px";
 light610.left = (cliWid / 25) + "px";
-light610.width = cliWid / 20 + "px";
-light610.height = cliWid / 20 + "px";
+if (document.body.clientWidth < 768){
+    light610.width = cliWid / 5 + "px";
+    light610.height = cliWid / 5 + "px";
+} else {
+    light610.width = cliWid / 20 + "px";
+    light610.height = cliWid / 20 + "px";
+}
 light610.cornerRadius = 50;
 light610.thickness = 4;
 light610.children[0].color = "#DFF9FB";
@@ -161,16 +171,30 @@ BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljk
 console.log(cliWid)
 var lightButtons = [];
 var lightButtonsColor = ["#fff", "#BC53FF", "#BCFF53", "#FF0000", "#53BCFF"];
-var x = - (cliWid / 6) ;
+if (document.body.clientWidth < 768){
+    var x = - (cliWid / 2) ;
+} else {
+    var x = - (cliWid / 6) ;
+}
 
 for (let i = 0; i < 5; i++) {
-    x += cliWid / 18;
-    lightButtons[i] = BABYLON.GUI.Button.CreateSimpleButton("button", "");
+    if (document.body.clientWidth < 768){
+        x += cliWid / 6;
+    } else {
+        x += cliWid / 18;
+    }
+    
+lightButtons[i] = BABYLON.GUI.Button.CreateSimpleButton("button", "");
     lightButtons[i].horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
     lightButtons[i].top = cliHei / 2.4 + "px";
     lightButtons[i].left = x + "px";
-    lightButtons[i].width = cliWid / 20 + "px";
-    lightButtons[i].height = cliWid / 20 + "px";
+    if (document.body.clientWidth < 768){
+        lightButtons[i].width = cliWid / 7 + "px";
+        lightButtons[i].height = cliWid / 7 + "px";
+    } else {
+        lightButtons[i].width = cliWid / 20 + "px";
+        lightButtons[i].height = cliWid / 20 + "px";
+    }
     lightButtons[i].cornerRadius = 20;
     // lightButtons[i].thickness = 4;
     // lightButtons[i].color = "#000";
@@ -193,9 +217,14 @@ for (let i = 0; i < 5; i++) {
 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
     var panel = new BABYLON.GUI.StackPanel();
-    panel.width = cliWid / 9 + "px";
+    if (document.body.clientWidth < 768){
+        panel.width = cliWid / 3 + "px";
+        panel.top = -(cliHei / 4) + "px";
+    } else {
+        panel.width = cliWid / 9 + "px";
+        panel.top = -(cliHei / 9) + "px";
+    }
     panel.isVertical = true;
-    panel.top = -(cliHei / 9) + "px";
     panel.left = -(cliWid / 100) + "px";
     panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
     panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
@@ -205,12 +234,21 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"
     textBlock.text = "R:255 G:255 B:255";
     textBlock.height = "30px";
     textBlock.color = "#fff";
+    if (document.body.clientWidth < 768){
+        textBlock.fontSize = 15;
+    }
     panel.addControl(textBlock);
+
 
     var picker = new BABYLON.GUI.ColorPicker();
     picker.value = light2.diffuse && light3.diffuse;
-    picker.height = cliWid / 9 + "px";
-    picker.width = cliWid / 9 + "px";
+    if (document.body.clientWidth < 768){
+        picker.height = cliWid / 3 + "px";
+        picker.width = cliWid / 3 + "px";
+    } else {
+        picker.height = cliWid / 9 + "px";
+        picker.width = cliWid / 9 + "px";
+    }
     picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
     picker.onValueChangedObservable.add(function(value) { // value is a color3
         light2.diffuse.copyFrom(value);
@@ -225,10 +263,15 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"
 var lightPlus = BABYLON.GUI.Button.CreateSimpleButton("lightPlus", "+");
 lightPlus.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 lightPlus.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-lightPlus.top = cliHei / 1.6 + "px";
+lightPlus.top = cliHei / 1.7 + "px";
 lightPlus.left = -(cliWid / 25) + "px";
-lightPlus.width = cliWid / 20 + "px";
-lightPlus.height = cliWid / 20 + "px";
+if (document.body.clientWidth < 768){
+    lightPlus.width = cliWid / 5 + "px";
+    lightPlus.height = cliWid / 5 + "px";
+} else {
+    lightPlus.width = cliWid / 20 + "px";
+    lightPlus.height = cliWid / 20 + "px";
+}
 lightPlus.cornerRadius = 50;
 lightPlus.thickness = 4;
 lightPlus.children[0].color = "#DFF9FB";
@@ -250,8 +293,13 @@ lightMinus.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 lightMinus.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
 lightMinus.top = cliHei / 1.37 + "px";
 lightMinus.left = -(cliWid / 25) + "px";
-lightMinus.width = cliWid / 20 + "px";
-lightMinus.height = cliWid / 20 + "px";
+if (document.body.clientWidth < 768){
+    lightMinus.width = cliWid / 5 + "px";
+    lightMinus.height = cliWid / 5 + "px";
+} else {
+    lightMinus.width = cliWid / 20 + "px";
+    lightMinus.height = cliWid / 20 + "px";
+}
 lightMinus.cornerRadius = 50;
 lightMinus.thickness = 4;
 lightMinus.children[0].color = "#DFF9FB";
