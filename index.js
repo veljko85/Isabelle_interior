@@ -171,11 +171,11 @@ light610.onPointerClickObservable.add(function () {
     }
 });
 // room
-// var isabelleInterior;
-// BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljko85/Isabelle_interior/gh-pages/", "Isabelle_interior.glb").then((result) => {
-//     isabelleInterior = result.meshes[0];
-//     isabelleInterior.scaling = new BABYLON.Vector3(100,100,100);
-// });
+var isabelleInterior;
+BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljko85/Isabelle_interior/gh-pages/", "Isabelle_interior.glb").then((result) => {
+    isabelleInterior = result.meshes[0];
+    isabelleInterior.scaling = new BABYLON.Vector3(100,100,100);
+});
 
 console.log(cliWid)
 var lightButtons = [];
