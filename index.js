@@ -1,4 +1,9 @@
 var canvas = document.getElementById("renderCanvas");
+// canvas.style.width = "100%";
+// canvas.style.height = "100%";
+var cliWid = canvas.offsetWidth;
+console.log(cliWid);
+var cliHei = canvas.offsetHeight;
 // var purpule = document.getElementById('purpule');
 // // var white = document.getElementById('white');
 // var green = document.getElementById('green');
@@ -30,8 +35,8 @@ const createScene =  () => {
 
 
 const scene = new BABYLON.Scene(engine);
-var cliWid = document.body.clientWidth;
-var cliHei = document.body.clientHeight;
+// var cliWid = document.body.clientWidth;
+// var cliHei = document.body.clientHeight;
 //create an AdvancedDynamicTexture in fullscreen mode
 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
 
@@ -109,14 +114,16 @@ light24.left = (cliWid / 25) + "px";
 if (document.body.clientWidth < 768){
     light24.width = cliWid / 5 + "px";
     light24.height = cliWid / 5 + "px";
+    light24.children[0].fontSize = cliWid / 20 + "px";
 } else {
     light24.width = cliWid / 20 + "px";
     light24.height = cliWid / 20 + "px";
+    light24.children[0].fontSize = cliWid / 60 + "px";
 }
 light24.cornerRadius = 50;
 light24.thickness = 4;
 light24.children[0].color = "#DFF9FB";
-light24.children[0].fontSize = 30;
+
 light24.color = "#FF7979";
 light24.background = "#EB4D4B";
 gui.addControl(light24);
@@ -139,14 +146,16 @@ light610.left = (cliWid / 25) + "px";
 if (document.body.clientWidth < 768){
     light610.width = cliWid / 5 + "px";
     light610.height = cliWid / 5 + "px";
+    light610.children[0].fontSize = cliWid / 20 + "px";
 } else {
     light610.width = cliWid / 20 + "px";
     light610.height = cliWid / 20 + "px";
+    light610.children[0].fontSize = cliWid / 60 + "px";
 }
 light610.cornerRadius = 50;
 light610.thickness = 4;
 light610.children[0].color = "#DFF9FB";
-light610.children[0].fontSize = 30;
+
 light610.color = "#FF7979";
 light610.background = "#EB4D4B";
 gui.addControl(light610);
@@ -162,11 +171,11 @@ light610.onPointerClickObservable.add(function () {
     }
 });
 // room
-var isabelleInterior;
-BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljko85/Isabelle_interior/gh-pages/", "Isabelle_interior.glb").then((result) => {
-    isabelleInterior = result.meshes[0];
-    isabelleInterior.scaling = new BABYLON.Vector3(100,100,100);
-});
+// var isabelleInterior;
+// BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/veljko85/Isabelle_interior/gh-pages/", "Isabelle_interior.glb").then((result) => {
+//     isabelleInterior = result.meshes[0];
+//     isabelleInterior.scaling = new BABYLON.Vector3(100,100,100);
+// });
 
 console.log(cliWid)
 var lightButtons = [];
@@ -234,8 +243,9 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"
     textBlock.text = "R:255 G:255 B:255";
     textBlock.height = "30px";
     textBlock.color = "#fff";
+    textBlock.fontSize = cliWid / 90 + "px";
     if (document.body.clientWidth < 768){
-        textBlock.fontSize = 15;
+        textBlock.fontSize = cliWid / 30 + "px";
     }
     panel.addControl(textBlock);
 
@@ -268,14 +278,16 @@ lightPlus.left = -(cliWid / 25) + "px";
 if (document.body.clientWidth < 768){
     lightPlus.width = cliWid / 5 + "px";
     lightPlus.height = cliWid / 5 + "px";
+    lightPlus.children[0].fontSize = cliWid / 20 + "px";
 } else {
     lightPlus.width = cliWid / 20 + "px";
     lightPlus.height = cliWid / 20 + "px";
+    lightPlus.children[0].fontSize = cliWid / 60 + "px";
 }
 lightPlus.cornerRadius = 50;
 lightPlus.thickness = 4;
 lightPlus.children[0].color = "#DFF9FB";
-lightPlus.children[0].fontSize = 40;
+// lightPlus.children[0].fontSize = cliWid / 60 + "px";
 lightPlus.color = "#FF7979";
 lightPlus.background = "#EB4D4B";
 gui.addControl(lightPlus);
@@ -296,14 +308,16 @@ lightMinus.left = -(cliWid / 25) + "px";
 if (document.body.clientWidth < 768){
     lightMinus.width = cliWid / 5 + "px";
     lightMinus.height = cliWid / 5 + "px";
+    lightMinus.children[0].fontSize = cliWid / 20 + "px";
 } else {
     lightMinus.width = cliWid / 20 + "px";
     lightMinus.height = cliWid / 20 + "px";
+    lightMinus.children[0].fontSize = cliWid / 60 + "px";
 }
 lightMinus.cornerRadius = 50;
 lightMinus.thickness = 4;
 lightMinus.children[0].color = "#DFF9FB";
-lightMinus.children[0].fontSize = 40;
+
 lightMinus.color = "#FF7979";
 lightMinus.background = "#EB4D4B";
 gui.addControl(lightMinus);
@@ -334,6 +348,34 @@ lightRays.density = 0.5;
 //lightRays.mesh.material.diffuseColor = new BABYLON.Color3(0.0, 1.0, 0.0);
 
 
+//screenshot of product
+
+var screenShotBut = BABYLON.GUI.Button.CreateSimpleButton("screenShotBut", "Screenshot");
+// screenShotBut.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+screenShotBut.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+screenShotBut.top = cliHei / 3.5 + "px";
+// screenShotBut.left = -(cliWid / 25) + "px";
+if (document.body.clientWidth < 768){
+    screenShotBut.width = cliWid / 3 + "px";
+    screenShotBut.height = cliWid / 5 + "px";
+    screenShotBut.children[0].fontSize = cliWid / 20 + "px";
+} else {
+    screenShotBut.width = cliWid / 10 + "px";
+    screenShotBut.height = cliWid / 20 + "px";
+    screenShotBut.children[0].fontSize = cliWid / 60 + "px";
+}
+screenShotBut.cornerRadius = 50;
+screenShotBut.thickness = 4;
+screenShotBut.children[0].color = "#DFF9FB";
+
+screenShotBut.color = "#FF7979";
+screenShotBut.background = "#EB4D4B";
+gui.addControl(screenShotBut);
+screenShotBut.onPointerClickObservable.add(function () {
+    setTimeout(function(){BABYLON.Tools.CreateScreenshot(engine, camera, 1600);}, 1000);
+});
+
+// setTimeout(function(){BABYLON.Tools.CreateScreenshot(engine, camera, 1600);}, 3000);
 
 return scene;
 }
