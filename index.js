@@ -97,22 +97,22 @@ const createScene = () => {
     new BABYLON.Vector3(0, 150, 0),
     scene
   );
-  camera.setTarget(new BABYLON.Vector3(-50, 150, 0));
-  camera.attachControl(canvas, true);
-  camera.speed = 5;
-  camera.checkCollisions = true;
+  //camera.setTarget(new BABYLON.Vector3(-50, 150, 0));
+  //camera.attachControl(canvas, true);
+  //camera.speed = 5;
+  //camera.checkCollisions = true;
   //0,200,0
-  // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 100, 0), scene);
+  var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 100, 0), scene);
   //          //180,50,-200
-  // camera.setPosition(new BABYLON.Vector3(180, -170, -200));
-  //             camera.attachControl(canvas, true);
+  camera.setPosition(new BABYLON.Vector3(180, -170, -200));
+               camera.attachControl(canvas, true);
   //camera field of view for mobile devices
   if (document.body.clientWidth < 768) {
     camera.fov = 1.5;
   }
 
   //denie scroll
-  //   camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius = 0;
+     camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius = 0;
 
   //set lights
   //default room color
